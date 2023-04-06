@@ -13,6 +13,7 @@ def dfs(x, y):
 
     while queue:
 
+
         x, y = queue.popleft()
         visited[x][y] = True
 
