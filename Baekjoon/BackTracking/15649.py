@@ -2,18 +2,16 @@
 # N까지 M개의 수열
 N, M = map(int, input().split())
 
-def back(nowArr):
-    if len(nowArr) >= M:
-        for i in range(M):
-            print(nowArr[i],end=' ')
-        print()
+
+def back():
+    if len(result) == M:
+        print(" ".join(map(str, result)))
         return
-    else:
-        for i in range(1, N+1):
-            # print(i)
-            if i not in nowArr:
-                nowArr.append(i)
-                back(nowArr)
-                nowArr.pop()
-for i in range(1, N+1):
-    back([i])
+    
+    for i in range(1, N+1):
+        if i not in result:
+            result.append(i)
+            back()
+            result.pop()
+result = []
+back()
