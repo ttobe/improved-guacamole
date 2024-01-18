@@ -1,0 +1,36 @@
+package class2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Test1181 {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        String[] lines = new String[N];
+        for (int i = 0; i < N; i++) {
+            lines[i] = br.readLine();
+        }
+        Arrays.sort(lines, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                if (s1.length() > s2.length()) {
+                    return 1;
+                } else if (s1.length() == s2.length()) {
+                    return s1.compareTo(s2);
+                } else if (s1.length() < s2.length()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+
+        String output = Arrays.toString(lines);
+        System.out.println(output.substring(1, output.length() - 1).replaceAll(",\n", ""));
+    }
+}
