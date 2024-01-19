@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class Test1181 {
 
@@ -29,8 +31,9 @@ public class Test1181 {
                 }
             }
         });
+        Set<String> linkedHashSetStrList = new LinkedHashSet<>(Arrays.asList(lines));
 
-        String output = Arrays.toString(lines);
-        System.out.println(output.substring(1, output.length() - 1).replaceAll(",\n", ""));
+        String output = linkedHashSetStrList.toString();
+        System.out.println(output.substring(1, output.length() - 1).replaceAll(", ", "\n"));
     }
 }
