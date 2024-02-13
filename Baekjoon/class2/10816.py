@@ -1,21 +1,16 @@
 # 숫자 카드 2
 
-N = int(input())
-sang = list(map(int, input().split()))
-M = int(input())
-arr2 = list(map(int, input().split()))
+from sys import stdin
 
-def binary(start, end, find):
-    if start > end:
-        return 0
-    m = (start + end)//2
-    if find == sang[m]:
-        return sang[start:end+1].count(find)
-    elif find < sang[m]:
-        return binary(start, m-1, find)
+_ = stdin.readline()
+N = map(int,stdin.readline().split())
+_ = stdin.readline()
+M = map(int,stdin.readline().split())
+hashmap = {}
+for n in N:
+    if n in hashmap:
+        hashmap[n] += 1
     else:
-        return binary(m+1, end, find)
+        hashmap[n] = 1
 
-for i in arr2:
-    print(sang.count(i),end=' ')
-
+print(' '.join(str(hashmap[m]) if m in hashmap else '0' for m in M))
