@@ -7,6 +7,7 @@ def isEmpty(nums):
         if item[1] > 0:
             return False
     return True
+
 for _ in range(T):
     min_heap = []
     max_heap = []
